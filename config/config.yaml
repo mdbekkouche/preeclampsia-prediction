@@ -1,0 +1,50 @@
+project:
+  name: preeclampsia_ai
+  random_state: 42
+
+data:
+  raw_file: data/raw/ljubljana.xlsx
+  processed_file: data/processed/ljubljana_features.csv
+
+target:
+  column: PE_Label
+
+features:
+  biomarkers:
+    - S-PLGF [µg/L]
+    - S-Flt1 [µg/L]
+    - sFLT/PLGF
+
+  doppler:
+    - Art ut. D-resistance index [RI]
+    - Art ut. D-pulsatility index [PI]
+    - Art ut. D-Peak Systolic Velocity [PSV]
+    - Art ut. L-resistance index [RI]
+    - Art ut. L-pulsatility index [PI]
+    - Art ut. L-Peak Systolic Velocity [PSV]
+    - Mean PI
+    - Mean RI
+    - Mean PSV
+    - Bilateral notch
+
+  clinical:
+    - Materna age [years]
+    - Pre-pregnancy weight [kg]
+    - Maternal hight [m]
+    - BMI [kg/m²]
+    - Parity
+    
+  interaction_features:
+    - log_sFlt1_PlGF
+    - Doppler_Angiogenic_Index
+    - Placental_Dysfunction_Score
+    - PlGF_Doppler_Discordance  
+
+interaction_features:
+  use_log_angiogenic_index: true
+  use_doppler_angiogenic_index: true
+  use_placental_dysfunction_score: true
+  use_vascular_placental_index: true
+  use_map_doppler_index: true
+  use_plgf_doppler_discordance: true
+  use_pi_difference: true
