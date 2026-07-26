@@ -1,10 +1,10 @@
 # Preeclampsia AI Prediction Project
 
-A modular Python project for early preeclampsia prediction and Gestational Age at Delivery Prediction using clinical, uterine artery Doppler, and angiogenic biomarkers.
+A modular Python project for preeclampsia prediction and Gestational Age at Delivery Prediction using clinical, uterine artery Doppler, and angiogenic biomarkers.
 
 ## Main research idea
 
-**Doppler–Angiogenic Interaction Features for Explainable Early Preeclampsia Prediction and Gestational Age at Delivery Prediction**
+**Doppler–Angiogenic Interaction Features for Explainable Preeclampsia Prediction and Gestational Age at Delivery Prediction**
 
 
 
