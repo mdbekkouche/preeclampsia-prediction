@@ -39,8 +39,8 @@ def load_dataset(file_path: str) -> pd.DataFrame:
     
     df = df.drop(columns=["Patient nuber"])
     #df = df.drop(columns=["Gestational age at delivery [weeks]"])
-    df = df.drop(columns=["Birth weight [g]"])
-    df = df.drop(columns=["PE_Label"])
+    #df = df.drop(columns=["Birth weight [g]"])
+    #df = df.drop(columns=["PE_Label"])
     
     print(df["S-PLGF [µg/L]"])
     

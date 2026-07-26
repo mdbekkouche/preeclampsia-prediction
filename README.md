@@ -47,7 +47,7 @@ python -m venv .venv
 Windows:
 
 ```bash
-.venv\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Scripts\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\activate
+.venv\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Scripts\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\activate
 ```
 
 Linux/macOS:
@@ -234,15 +234,11 @@ This will produce:
 
 
 
-\- `gestational\_age\_regression.csv`
+\- `gestational\\\\\\\_age\\\\\\\_regression.csv`
 
-\- `prediction\_vs\_actual.png`
+\- `prediction\\\\\\\_vs\\\\\\\_actual.png`
 
-\- `residual\_plot.png`
+\- `residual\\\\\\\_plot.png`
 
-\- `residual\_histogram.png`
-
-
-
-
+\- `residual\\\\\\\_histogram.png`
 

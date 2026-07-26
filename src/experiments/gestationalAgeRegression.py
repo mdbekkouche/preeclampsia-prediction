@@ -98,7 +98,9 @@ def load_data():
     df = load_dataset(
         config["data"]["raw_file"]
     )
-
+    df = df.drop(columns=["Birth weight [g]"])
+    df = df.drop(columns=["PE_Label"])
+    
     df = build_interaction_features(
         df,
         config

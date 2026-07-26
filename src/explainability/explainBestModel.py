@@ -68,6 +68,8 @@ def load_data():
     config = load_config(CONFIG_FILE)
 
     df = load_dataset(config["data"]["raw_file"])
+    df = df.drop(columns=["Gestational age at delivery [weeks]"])
+    df = df.drop(columns=["Birth weight [g]"])
 
     df = build_interaction_features(df, config)
 

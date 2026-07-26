@@ -80,6 +80,8 @@ def main():
     config = load_config("config/config.yaml")
 
     df = load_dataset(config["data"]["raw_file"])
+    df = df.drop(columns=["Gestational age at delivery [weeks]"])
+    df = df.drop(columns=["Birth weight [g]"])
 
     df = build_interaction_features(df, config)
 
