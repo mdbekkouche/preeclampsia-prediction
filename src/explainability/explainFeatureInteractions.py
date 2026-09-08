@@ -690,11 +690,12 @@ def save_top_interactions(
         + top["Feature2"]
     )
 
-    plt.figure(figsize=(10, 8))
+    plt.figure(figsize=(10, 12))
 
     plt.barh(
         top["Pair"],
-        top["MeanInteraction"]
+        top["MeanInteraction"],
+        color='green'
     )
 
     plt.gca().invert_yaxis()
