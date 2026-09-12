@@ -47,7 +47,7 @@ python -m venv .venv
 Windows:
 
 ```bash
-.venv\\\\\\\\\\\\\\\\Scripts\\\\\\\\\\\\\\\\activate
+.venv\\Scripts\\activate
 ```
 
 Linux/macOS:
@@ -72,7 +72,7 @@ pip install -r requirements.txt
 
 ```bash
 
-python -m src.run\\\\\\\\\\\\\\\_approach
+python -m src.run\_approach
 
 ```
 
@@ -82,7 +82,7 @@ This will produce:
 
 
 
-\- `results/model\\\\\\\\\\\\\\\_benchmark.csv`
+\- `results/model\_benchmark.csv`
 
 
 
@@ -96,7 +96,7 @@ This will produce:
 
 ```bash
 
-python -m src.experiments.feature\\\\\\\\\\\\\\\_interaction\\\\\\\\\\\\\\\_study
+python -m src.experiments.feature\_interaction\_study
 
 ```
 
@@ -106,13 +106,13 @@ This will produce:
 
 
 
-\- `results/interaction\\\\\\\\\\\\\\\_feature\\\\\\\\\\\\\\\_importance.csv`
+\- `results/interaction\_feature\_importance.csv`
 
 
 
 ```bash
 
-python -m src.experiments.ablation\\\\\\\\\\\\\\\_study
+python -m src.experiments.ablation\_study
 
 ```
 
@@ -122,7 +122,7 @@ This will produce:
 
 
 
-\- `results/ablation\\\\\\\\\\\\\\\_feature\\\\\\\\\\\\\\\_sets.csv`
+\- `results/ablation\_feature\_sets.csv`
 
 
 
@@ -138,7 +138,7 @@ This will produce:
 
 
 
-\- `results/feature\\\\\\\\\\\\\\\_set\\\\\\\\\\\\\\\_model\\\\\\\\\\\\\\\_comparison.csv`
+\- `results/feature\_set\_model\_comparison.csv`
 
 
 
@@ -162,7 +162,7 @@ This will produce:
 
 
 
-\- `results/selective\\\\\\\\\\\\\\\_prediction.csv`
+\- `results/selective\_prediction.csv`
 
 
 
@@ -186,15 +186,15 @@ This will produce the following documents in `results/shap/`:
 
 
 
-\- `feature\\\\\\\\\\\\\\\_importance.csv`
+\- `feature\_importance.csv`
 
-\- `shap\\\\\\\\\\\\\\\_summary\\\\\\\\\\\\\\\_bar.png`
+\- `shap\_summary\_bar.png`
 
-\- `shap\\\\\\\\\\\\\\\_summary\\\\\\\\\\\\\\\_beeswarm.png`
+\- `shap\_summary\_beeswarm.png`
 
-\- `dependence\\\\\\\\\\\\\\\_<feature>.png`
+\- `dependence\_<feature>.png`
 
-\- `waterfall\\\\\\\\\\\\\\\_<patient>.png`
+\- `waterfall\_<patient>.png`
 
 
 
@@ -212,17 +212,17 @@ This will produce the following documents in `results/shap-cross-val/`:
 
 
 
-\- `shap\\\\\\\_fold\\\\\\\_importance.csv`
+\- `shap\_fold\_importance.csv`
 
-\- `shap\\\\\\\_stability\\\\\\\_summary.csv`
+\- `shap\_stability\_summary.csv`
 
-\- `shap\\\\\\\_fold\\\\\\\_ranks.csv`
+\- `shap\_fold\_ranks.csv`
 
-\- `shap\\\\\\\_rank\\\\\\\_correlation.csv`
+\- `shap\_rank\_correlation.csv`
 
-\- `shap\\\\\\\_importance\\\\\\\_mean.png`
+\- `shap\_importance\_mean.png`
 
-\- `shap\\\\\\\_importance\\\\\\\_stability.png`
+\- `shap\_importance\_stability.png`
 
 
 
@@ -240,7 +240,7 @@ This will produce the results in:
 
 
 
-\- `results/feature\\\\\\\\\\\\\\\_interactions/`
+\- `results/feature\_interactions/`
 
 
 
@@ -258,23 +258,23 @@ This will produce the following documents in `results/shap-interaction-stability
 
 
 
-\- `shap\\\\\\\_interaction\\\\\\\_split\\\\\\\_values.csv`
+\- `shap\_interaction\_split\_values.csv`
 
-\- `shap\\\\\\\_interaction\\\\\\\_stability\\\\\\\_summary.csv`
+\- `shap\_interaction\_stability\_summary.csv`
 
-\- `shap\\\\\\\_interaction\\\\\\\_split\\\\\\\_ranks.csv`
+\- `shap\_interaction\_split\_ranks.csv`
 
-\- `shap\\\\\\\_interaction\\\\\\\_rank\\\\\\\_correlation.csv`
+\- `shap\_interaction\_rank\_correlation.csv`
 
-\- `shap\\\\\\\_interaction\\\\\\\_jaccard.csv`
+\- `shap\_interaction\_jaccard.csv`
 
-\- `shap\\\\\\\_interaction\\\\\\\_heatmap.csv`
+\- `shap\_interaction\_heatmap.csv`
 
-\- `shap\\\\\\\_interaction\\\\\\\_report.txt`
+\- `shap\_interaction\_report.txt`
 
-\- `shap\\\\\\\_interaction\\\\\\\_stability.png`
+\- `shap\_interaction\_stability.png`
 
-\- `shap\\\\\\\_interaction\\\\\\\_heatmap.png`
+\- `shap\_interaction\_heatmap.png`
 
 
 
@@ -288,29 +288,29 @@ python -m src.explainability.local-shap-stability
 
 
 
-This will produce the following documents in `results/local\\\_shap\\\_stability/`:
+This will produce the following documents in `results/local\\\\\\\_shap\\\\\\\_stability/`:
 
 
 
-\- `local\\\\\\\_shap\\\\\\\_values.csv`
+\- `local\_shap\_values.csv`
 
-\- `local\\\\\\\_shap\\\\\\\_summary.csv`
+\- `local\_shap\_summary.csv`
 
-\- `local\\\\\\\_top\\\\\\\_features.csv`
+\- `local\_top\_features.csv`
 
-\- `local\\\\\\\_prediction\\\\\\\_stability.csv`
+\- `local\_prediction\_stability.csv`
 
-\- `local\\\\\\\_patient\\\\\\\_stability.csv`
+\- `local\_patient\_stability.csv`
 
-\- `local\\\\\\\_jaccard.csv`
+\- `local\_jaccard.csv`
 
-\- `local\\\\\\\_rank\\\\\\\_correlation.csv`
+\- `local\_rank\_correlation.csv`
 
-\- `local\\\\\\\_shap\\\\\\\_stability\\\\\\\_report.txt`
+\- `local\_shap\_stability\_report.txt`
 
-\- `local\\\\\\\_explanation\\\\\\\_stability.png`
+\- `local\_explanation\_stability.png`
 
-\- `local\\\\\\\_probability\\\\\\\_stability.png`
+\- `local\_probability\_stability.png`
 
 
 
@@ -334,11 +334,11 @@ This will produce:
 
 
 
-\- `gestational\\\\\\\\\\\\\\\_age\\\\\\\\\\\\\\\_regression.csv`
+\- `gestational\_age\_regression.csv`
 
-\- `prediction\\\\\\\\\\\\\\\_vs\\\\\\\\\\\\\\\_actual.png`
+\- `prediction\_vs\_actual.png`
 
-\- `residual\\\\\\\\\\\\\\\_plot.png`
+\- `residual\_plot.png`
 
-\- `residual\\\\\\\\\\\\\\\_histogram.png`
+\- `residual\_histogram.png`
 
