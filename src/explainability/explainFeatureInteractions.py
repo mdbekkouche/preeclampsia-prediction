@@ -689,14 +689,31 @@ def save_top_interactions(
         + "\n×\n"
         + top["Feature2"]
     )
-
-    plt.figure(figsize=(10, 12))
-
+    plt.figure(
+        figsize=(11, 9)
+    )
+    
+    top["feature-pair"] = (
+        top["Feature1"].astype(str)
+        + " x "
+        + top["Feature2"].astype(str)
+    )
+    
+    plt.barh(
+        top["feature-pair"],
+        top["MeanInteraction"],
+        capsize=3,
+        color='#007000'
+    )
+    
+    '''
     plt.barh(
         top["Pair"],
         top["MeanInteraction"],
-        color='green'
+        capsize=3,
+        color='#007000'
     )
+    '''
 
     plt.gca().invert_yaxis()
 

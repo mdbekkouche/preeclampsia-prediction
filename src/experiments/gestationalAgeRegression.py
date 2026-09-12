@@ -711,7 +711,7 @@ def save_prediction_plot(
     plt.scatter(
         y,
         y_pred,
-        alpha=0.7,
+        color='#007000'
     )
 
     minimum = min(
@@ -728,7 +728,7 @@ def save_prediction_plot(
         [minimum, maximum],
         [minimum, maximum],
         "r--",
-        linewidth=2,
+        linewidth=2
     )
 
     plt.xlabel(
@@ -780,7 +780,7 @@ def save_residual_plot(
     plt.scatter(
         y_pred,
         residuals,
-        alpha=0.7,
+        color='#007000'
     )
 
     plt.axhline(
