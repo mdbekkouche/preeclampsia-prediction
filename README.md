@@ -70,7 +70,7 @@ pip install -r requirements.txt
 
 ```bash
 
-python -m src.run\_approach
+python -m src.run_approach
 
 ```
 
@@ -80,7 +80,7 @@ This will produce:
 
 
 
-\- `results/model\_benchmark.csv`
+\- `results/model_benchmark.csv`
 
 
 
@@ -94,7 +94,7 @@ This will produce:
 
 ```bash
 
-python -m src.experiments.feature\_interaction\_study
+python -m src.experiments.feature_interaction_study
 
 ```
 
@@ -104,13 +104,13 @@ This will produce:
 
 
 
-\- `results/interaction\_feature\_importance.csv`
+\- `results/interaction_feature_importance.csv`
 
 
 
 ```bash
 
-python -m src.experiments.ablation\_study
+python -m src.experiments.ablation_study
 
 ```
 
@@ -120,7 +120,7 @@ This will produce:
 
 
 
-\- `results/ablation\_feature\_sets.csv`
+\- `results/ablation_feature_sets.csv`
 
 
 
@@ -136,7 +136,7 @@ This will produce:
 
 
 
-\- `results/feature\_set\_model\_comparison.csv`
+\- `results/feature_set_model_comparison.csv`
 
 
 
@@ -160,7 +160,7 @@ This will produce:
 
 
 
-\- `results/selective\_prediction.csv`
+\- `results/selective_prediction.csv`
 
 
 
@@ -170,8 +170,6 @@ This will produce:
 
 \# SHAP Analysis
 
-
-
 ```bash
 
 python -m src.explainability.explainBestModel
@@ -180,19 +178,40 @@ python -m src.explainability.explainBestModel
 
 
 
+```bash
+
+python -m src.explainability.explainBestModel
+
+```
+This will produce the following documents in `results/shap-random-forest-cv/`:
+
+
+
+\- `feature-importance.csv`
+
+\- `shap-contributions.csv`
+
+\- `shap-global-bar.png`
+
+\- `shap-global-beeswarm.png`
+
+\- `shap-global-explanation.pkl`
+
+
+
 This will produce the following documents in `results/shap/`:
 
 
 
-\- `feature\_importance.csv`
+\- `feature_importance.csv`
 
-\- `shap\_summary\_bar.png`
+\- `shap_summary_bar.png`
 
-\- `shap\_summary\_beeswarm.png`
+\- `shap_summary_beeswarm.png`
 
-\- `dependence\_<feature>.png`
+\- `dependence_<feature>.png`
 
-\- `waterfall\_<patient>.png`
+\- `waterfall_<patient>.png`
 
 
 
@@ -210,17 +229,17 @@ This will produce the following documents in `results/shap-cross-val/`:
 
 
 
-\- `shap\_fold\_importance.csv`
+\- `shap_fold_importance.csv`
 
-\- `shap\_stability\_summary.csv`
+\- `shap_stability_summary.csv`
 
-\- `shap\_fold\_ranks.csv`
+\- `shap_fold_ranks.csv`
 
-\- `shap\_rank\_correlation.csv`
+\- `shap_rank_correlation.csv`
 
-\- `shap\_importance\_mean.png`
+\- `shap_importance_mean.png`
 
-\- `shap\_importance\_stability.png`
+\- `shap_importance_stability.png`
 
 
 
@@ -238,7 +257,7 @@ This will produce the results in:
 
 
 
-\- `results/feature\_interactions/`
+\- `results/feature_interactions/`
 
 
 
@@ -256,23 +275,23 @@ This will produce the following documents in `results/shap-interaction-stability
 
 
 
-\- `shap\_interaction\_split\_values.csv`
+\- `shap_interaction_split_values.csv`
 
-\- `shap\_interaction\_stability\_summary.csv`
+\- `shap_interaction_stability_summary.csv`
 
-\- `shap\_interaction\_split\_ranks.csv`
+\- `shap_interaction_split_ranks.csv`
 
-\- `shap\_interaction\_rank\_correlation.csv`
+\- `shap_interaction_rank_correlation.csv`
 
-\- `shap\_interaction\_jaccard.csv`
+\- `shap_interaction_jaccard.csv`
 
-\- `shap\_interaction\_heatmap.csv`
+\- `shap_interaction_heatmap.csv`
 
-\- `shap\_interaction\_report.txt`
+\- `shap_interaction_report.txt`
 
-\- `shap\_interaction\_stability.png`
+\- `shap_interaction_stability.png`
 
-\- `shap\_interaction\_heatmap.png`
+\- `shap_interaction_heatmap.png`
 
 
 
@@ -286,29 +305,29 @@ python -m src.explainability.local-shap-stability
 
 
 
-This will produce the following documents in `results/local\_shap\_stability/`:
+This will produce the following documents in `results/local_shap_stability/`:
 
 
 
-\- `local\_shap\_values.csv`
+\- `local_shap_values.csv`
 
-\- `local\_shap\_summary.csv`
+\- `local_shap_summary.csv`
 
-\- `local\_top\_features.csv`
+\- `local_top_features.csv`
 
-\- `local\_prediction\_stability.csv`
+\- `local_prediction_stability.csv`
 
-\- `local\_patient\_stability.csv`
+\- `local_patient_stability.csv`
 
-\- `local\_jaccard.csv`
+\- `local_jaccard.csv`
 
-\- `local\_rank\_correlation.csv`
+\- `local_rank_correlation.csv`
 
-\- `local\_shap\_stability\_report.txt`
+\- `local_shap_stability_report.txt`
 
-\- `local\_explanation\_stability.png`
+\- `local_explanation_stability.png`
 
-\- `local\_probability\_stability.png`
+\- `local_probability_stability.png`
 
 
 
@@ -332,11 +351,11 @@ This will produce:
 
 
 
-\- `gestational\_age\_regression.csv`
+\- `gestational_age_regression.csv`
 
-\- `prediction\_vs\_actual.png`
+\- `prediction_vs_actual.png`
 
-\- `residual\_plot.png`
+\- `residual_plot.png`
 
-\- `residual\_histogram.png`
+\- `residual_histogram.png`
 

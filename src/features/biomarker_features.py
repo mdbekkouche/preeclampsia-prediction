@@ -4,7 +4,7 @@ import numpy as np
 def create_angiogenic_imbalance_index(df):
     """log(sFlt-1 / PlGF)"""
     df["log_sFlt1_PlGF"] = np.log(
-        (df["S-Flt1 [µg/L]"] + 1e-8) / (df["S-PLGF [µg/L]"] + 1e-8)
+        (df["S-Flt1 [µg/L]"] + 1e-10) / (df["S-PLGF [µg/L]"] + 1e-10)
     )
     return df
 

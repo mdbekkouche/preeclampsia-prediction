@@ -9,6 +9,7 @@ from sklearn.preprocessing import StandardScaler
 
 from sklearn.base import clone
 from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import RepeatedStratifiedKFold
 from sklearn.metrics import (
     roc_auc_score,
     accuracy_score,
@@ -16,11 +17,147 @@ from sklearn.metrics import (
     recall_score,
     f1_score,
 )
-
+from sklearn.base import BaseEstimator
 from src.data.load_data import load_dataset
 from src.features.build_features import build_interaction_features
 from src.utils.config import load_config
 from src.models.evaluateFeatureSets import get_models   # reuse your models
+
+class PlGFDopplerDiscordance(BaseEstimator):
+    """
+    Calculate the PlGF-Doppler Discordance score:
+
+        PlGF_Doppler_Discordance = z(Mean PI) - z(PlGF)
+
+    The mean and standard deviation for each variable are estimated
+    using the training data only within each cross-validation fold.
+    """
+
+    def fit(self, X, y=None):
+
+        features = [
+            "Mean PI",
+            "S-PLGF [µg/L]"
+        ]
+
+        missing = [
+            col for col in features
+            if col not in X.columns
+        ]
+
+        if missing:
+            raise ValueError(
+                f"Missing demanded features: {missing}"
+            )
+
+        # Parameters estimated from the training fold only
+        self.mean_pi_mean_ = X["Mean PI"].mean()
+        self.mean_pi_std_ = X["Mean PI"].std(ddof=0)
+
+        self.plgf_mean_ = X["S-PLGF [µg/L]"].mean()
+        self.plgf_std_ = X["S-PLGF [µg/L]"].std(ddof=0)
+
+        # Avoid division by zero
+        if pd.isna(self.mean_pi_std_) or self.mean_pi_std_ == 0:
+            self.mean_pi_std_ = 1.0
+
+        if pd.isna(self.plgf_std_) or self.plgf_std_ == 0:
+            self.plgf_std_ = 1.0
+
+        return self
+
+    def transform(self, X):
+
+        X_out = X.copy()
+
+        # Calculate z(Mean PI)
+        z_mean_pi = (
+            X_out["Mean PI"] - self.mean_pi_mean_
+        ) / self.mean_pi_std_
+
+        # Calculate z(PlGF)
+        z_plgf = (
+            X_out["S-PLGF [µg/L]"] - self.plgf_mean_
+        ) / self.plgf_std_
+
+        # Add individual z-scores
+        X_out["z_Mean_PI"] = z_mean_pi
+        X_out["z_S_PLGF"] = z_plgf
+
+        # PlGF-Doppler Discordance
+        X_out["PlGF_Doppler_Discordance"] = (
+            z_mean_pi - z_plgf
+        )
+
+        return X_out
+
+PLACENTAL_FEATURES = [
+    "Mean PI",
+    "S-Flt1 [µg/L]",
+    "S-PLGF [µg/L]"
+]
+
+# ============================================================
+# Placental Dysfunction Score
+# ============================================================
+
+class PlacentalDysfunctionScore(BaseEstimator):
+    """
+    Calculate:
+        PDS = z(Mean PI) + z(sFlt-1) - z(PlGF)
+
+    Means and standard deviations are learned only from the
+    training portion of each cross-validation fold.
+    """
+
+    def fit(self, X, y=None):
+        missing = [
+            col for col in PLACENTAL_FEATURES
+            if col not in X.columns
+        ]
+
+        if missing:
+            raise ValueError(
+                f"Missing required biomarker columns: {missing}"
+            )
+
+        self.means_ = X[PLACENTAL_FEATURES].mean()
+        self.stds_ = X[PLACENTAL_FEATURES].std(ddof=0)
+
+        # Prevent division by zero for constant or entirely
+        # missing features. Missing values are imputed later.
+        self.stds_ = self.stds_.replace(0, 1).fillna(1)
+
+        return self
+
+    def transform(self, X):
+        X_out = X.copy()
+
+        z_mean_pi = (
+            X_out["Mean PI"] - self.means_["Mean PI"]
+        ) / self.stds_["Mean PI"]
+
+        z_sflt1 = (
+            X_out["S-Flt1 [µg/L]"]
+            - self.means_["S-Flt1 [µg/L]"]
+        ) / self.stds_["S-Flt1 [µg/L]"]
+
+        z_plgf = (
+            X_out["S-PLGF [µg/L]"]
+            - self.means_["S-PLGF [µg/L]"]
+        ) / self.stds_["S-PLGF [µg/L]"]
+
+        X_out["z_Mean_PI"] = z_mean_pi
+        X_out["z_S_Flt1"] = z_sflt1
+        X_out["z_S_PLGF"] = z_plgf
+
+        X_out["Placental_Dysfunction_Score"] = (
+            z_mean_pi + z_sflt1 - z_plgf
+        )
+
+        return X_out
+
+
 
 def evaluate_selective_prediction(model, X, y, cv, threshold):
 
@@ -104,10 +241,10 @@ def main():
             ["PE", "IUGR+PE"]
         ).astype(int) 
 
-    cv = StratifiedKFold(
+    cv = RepeatedStratifiedKFold(
         n_splits=5,
-        shuffle=True,
-        random_state=42,
+        n_repeats=10,
+        random_state=42
     )
 
     thresholds = [0.70, 0.75, 0.80, 0.85, 0.90, 0.95]
@@ -126,6 +263,8 @@ def main():
         for threshold in thresholds:
             
             pipeline = Pipeline([
+                ("plgf_doppler_discordance", PlGFDopplerDiscordance()),
+                ("placental_score", PlacentalDysfunctionScore()),
                 ("imputer", SimpleImputer(strategy="median")),
                 ("scaler", StandardScaler()),
                 ("model", model),

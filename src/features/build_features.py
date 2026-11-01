@@ -26,10 +26,10 @@ def build_interaction_features(df, config):
 
     df = create_angiogenic_imbalance_index(df)
     df = create_doppler_angiogenic_index(df)
-    df = create_placental_dysfunction_score(df)
+   # df = create_placental_dysfunction_score(df)
     #df = create_vascular_placental_index(df)
     #df = create_map_doppler_index(df)
-    df = create_plgf_doppler_discordance(df)
+   # df = create_plgf_doppler_discordance(df)
     #df = create_pi_difference(df)
     #df = create_ri_difference(df)
 
