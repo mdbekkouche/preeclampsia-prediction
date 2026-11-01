@@ -170,17 +170,13 @@ This will produce:
 
 \# SHAP Analysis
 
-```bash
 
-python -m src.explainability.explainBestModel
-
-```
 
 
 
 ```bash
 
-python -m src.explainability.explainBestModel
+python -m src.explainability.preeclampsia-shap-random-forest-cv
 
 ```
 This will produce the following documents in `results/shap-random-forest-cv/`:
@@ -198,6 +194,11 @@ This will produce the following documents in `results/shap-random-forest-cv/`:
 \- `shap-global-explanation.pkl`
 
 
+```bash
+
+python -m src.explainability.explainBestModel
+
+```
 
 This will produce the following documents in `results/shap/`:
 
