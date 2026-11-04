@@ -10,9 +10,7 @@ For each outer fold:
 
 Global feature importance is calculated by averaging absolute SHAP
 contributions across the 10 held-out explanations for each patient,
-then averaging across patients:
-
-    I_j = (1 / n) * sum_i [(1 / R) * sum_r |phi_ij^(r)|]
+then averaging across patients.
 
 Since every patient is held out exactly once per repetition, this is
 equivalent to averaging |SHAP| over all held-out evaluation instances.
@@ -585,7 +583,7 @@ def run_cross_validated_shap(X: pd.DataFrame, y: pd.Series, base_model):
     shap.plots.bar(
         global_explanation,
         max_display=min(MAX_DISPLAY, len(feature_names_reference)),
-        show=False,
+        show=False
     )
     plt.tight_layout()
     plt.savefig(

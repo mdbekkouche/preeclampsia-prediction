@@ -23,7 +23,7 @@ The project supports:
 
 Place the original dataset in:
 
-`data/raw/ljubljana.csv`
+`data/raw/ljubljana.xlsx`
 
 The current project is designed around variables such as:
 
@@ -57,7 +57,7 @@ source .venv/bin/activate
 Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip install -r packages.txt
 ```
 
 ## Run (Research experiments)
@@ -150,7 +150,7 @@ This will produce:
 
 ```bash
 
-python -m src.models.slectivePrediction
+python -m src.models.selectivePrediction
 
 ```
 
