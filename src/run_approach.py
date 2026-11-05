@@ -11,7 +11,12 @@ def main():
 
     print("Loading dataset...")
     df = load_dataset(config["data"]["raw_file"])
-
+    
+    ###########
+    df = df.drop(columns=["Gestational age at delivery [weeks]"])
+    df = df.drop(columns=["Birth weight [g]"])
+    ###########
+    
     #print("Building interaction features...")
     df = build_interaction_features(df, config)
 

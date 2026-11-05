@@ -162,7 +162,7 @@ def run_model_benchmark(df: pd.DataFrame, config: dict):
     
     df[target_column] = df[target_column].isin(
         ["PE", "IUGR+PE"]
-    ).astype(int)   
+    ).astype(int)
     
     y = df[target_column]
     

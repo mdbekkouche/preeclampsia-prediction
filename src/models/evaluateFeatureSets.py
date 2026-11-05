@@ -234,6 +234,9 @@ def main():
             + config["features"]["interaction_features"]
         ),
     }
+    
+    lastclasscount = len(feature_groups["clinical_doppler_biomarkers_interactions"])
+    print(lastclasscount)
 
     models = get_models()
 
